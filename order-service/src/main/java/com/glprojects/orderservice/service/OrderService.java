@@ -2,13 +2,22 @@ package com.glprojects.orderservice.service;
 
 import com.glprojects.orderservice.dto.OrderRequestDTO;
 import com.glprojects.orderservice.dto.OrderResponseDTO;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
 public interface OrderService {
-    List<OrderResponseDTO> getAll();
-    OrderResponseDTO getById(Long id);
-    OrderResponseDTO save(OrderRequestDTO dto);
-    OrderResponseDTO update(Long id, OrderRequestDTO dto);
-    void delete(Long id);
+
+    Mono<OrderResponseDTO> createOrder(OrderRequestDTO dto);
+
+    Mono<OrderResponseDTO> getOrderById(String id);
+
+    Flux<OrderResponseDTO> getAllOrders();
+
+    Flux<OrderResponseDTO> getOrdersByUserId(String userId);
+
+    Mono<OrderResponseDTO> updateOrder(String id, OrderRequestDTO dto);
+
+    Mono<Void> deleteOrder(String id);
 }

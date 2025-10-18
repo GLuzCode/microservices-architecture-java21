@@ -1,19 +1,18 @@
 package com.glprojects.orderservice.entity;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "orders")
+@Document(collection = "orders")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @NotNull(message = "UserId is required")
     private Long userId;  // relación con user-service
