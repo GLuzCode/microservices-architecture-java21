@@ -2,10 +2,10 @@ server:
   port: 8888
 
 spring:
-  profiles:
-    active: native
   application:
     name: config-server
+  profiles:
+    active: git
   security:
     user:
       name: ${CONFIG_USER:config}
@@ -13,8 +13,12 @@ spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: file:../config-repo
+        git:
+          uri: https://github.com/GLuzCode/config-repo.git
+          default-label: main
+          clone-on-start: true
+          username: ${GIT_USER}
+          password: ${GIT_TOKEN}
 management:
   endpoints:
     web:

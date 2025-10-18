@@ -11,17 +11,18 @@ import org.springframework.core.env.Environment;
 @EnableConfigServer
 public class ConfigServerApplication {
 
-	@Autowired
+	/*@Autowired
 	private Environment env;
-
+	*/
 	public static void main(String[] args) {
 		SpringApplication.run(ConfigServerApplication.class, args);
 	}
 
+	/*
 	@PostConstruct
 	public void logSearchLocations() {
 		String locations = env.getProperty("spring.cloud.config.server.native.search-locations");
 		System.out.println("Config Server buscando en: " + locations);
 	}
-
+	*/
 }
