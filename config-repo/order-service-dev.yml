@@ -19,9 +19,10 @@ spring:
     name: order-service
   data:
     mongodb:
-      host: localhost         # luego pondremos docker/k8s
-      port: 27017
-      database: orderdb
+      uri: mongodb://localhost:27017/orderdb
+      #host: localhost         # luego pondremos docker/k8s
+      #port: 27017
+      #database: orderdb
 management:
   endpoints:
     web:
